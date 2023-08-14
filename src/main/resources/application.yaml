@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/marcket
+    username: postgres
+    password: digite sua senha
+    drive-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+  show-sql: true

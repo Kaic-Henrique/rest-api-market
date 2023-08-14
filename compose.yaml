@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - POSTGRES_DB=market
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=digite sua senha
+    ports:
+      - '5432'
