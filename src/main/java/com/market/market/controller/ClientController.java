@@ -23,7 +23,7 @@ public class ClientController {
     }
 
     @GetMapping("/client/{id}")
-    public  ResponseEntity<ClientEntity> findById(@PathVariable Long id){
+    public  ResponseEntity<ClientEntity> findOne(@PathVariable Long id){
         ClientEntity findClient = clientRepository.findById(id).get();
         return ResponseEntity.status(HttpStatus.OK).body(findClient);
     }
