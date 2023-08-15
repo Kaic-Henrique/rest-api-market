@@ -3,6 +3,7 @@ package com.market.market.service;
 import com.market.market.entity.ProductEntity;
 import com.market.market.repository.ProductRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ProductService {
 
-    private final ProductRepository productRepository;
+    ProductRepository productRepository;
 
 
     public List<ProductEntity> findProducts(){
@@ -24,6 +25,12 @@ public class ProductService {
 
     public ProductEntity registerProduct(ProductEntity productEntity){
         return productRepository.save(productEntity);
+    }
+
+    public ProductEntity atualizarRegistro(Long id, ProductEntity newProduct){
+        ProductEntity currentProduct = productRepository.findById(id).get();
+        BeanUtils.copyProperties(newProduct,currentProduct,"id");
+        return productRepository.save(currentProduct);
     }
 
     public void deleteProduct(Long id){

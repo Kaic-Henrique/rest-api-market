@@ -1,8 +1,10 @@
 package com.market.market.service;
 
+import com.fasterxml.jackson.databind.util.BeanUtil;
 import com.market.market.entity.ClientEntity;
 import com.market.market.repository.ClientRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ClientService {
 
-    private final ClientRepository clientRepository;
+    ClientRepository clientRepository;
 
     public List <ClientEntity> findClients(){
         return clientRepository.findAll();
@@ -23,6 +25,12 @@ public class ClientService {
 
     public ClientEntity registerClient(ClientEntity clientEntity){
         return clientRepository.save(clientEntity);
+    }
+
+    public ClientEntity updateClient(Long id, ClientEntity newClient){
+        ClientEntity currentClient = clientRepository.findById(id).get();
+        BeanUtils.copyProperties(currentClient, newClient,"id");
+        return clientRepository.save(currentClient);
     }
 
     public void deleteRegisterClient(Long id){
