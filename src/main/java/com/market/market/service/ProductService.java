@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ProductService {
 
-    ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
 
     public List<ProductEntity> findProducts(){

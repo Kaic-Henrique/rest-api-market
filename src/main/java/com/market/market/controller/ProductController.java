@@ -16,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductController {
 
-     ProductService productService;
+     private final ProductService productService;
 
     @GetMapping("/products")
     public ResponseEntity<List<ProductEntity>> findAll(){

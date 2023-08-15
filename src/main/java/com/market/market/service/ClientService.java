@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ClientService {
 
-    ClientRepository clientRepository;
+    private final ClientRepository clientRepository;
 
     public List <ClientEntity> findClients(){
         return clientRepository.findAll();

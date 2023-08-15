@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/marcket
+    url: jdbc:postgresql://localhost:5432/market
     username: postgres
     password: digite sua senha
     drive-class-name: org.postgresql.Driver

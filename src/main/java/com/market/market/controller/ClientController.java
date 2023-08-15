@@ -15,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ClientController {
 
-    ClientService clientService;
+    private final ClientService clientService;
 
     @GetMapping("/Clients")
     public ResponseEntity<List<ClientEntity>> findAll(){
